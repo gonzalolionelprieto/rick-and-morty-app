@@ -2,13 +2,13 @@ import React from "react";
 
 export default function Cards({ characters }) {
   return (
-    <div className="grid grid-cols-5 gap-3">
+    <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5   gap-3 justify-center">
       {characters.map((item, index) => (
         <div
           key={index}
-          className="max-w-sm rounded overflow-hidden shadow-lg m-5"
+          className="max-w-sm rounded overflow-hidden shadow-lg m-5 mx-auto"
         >
-          <div className="character-containers">
+          <div className="character-containers ">
             <img className="w-full" src={item.image} alt=" " />
             <div className="px-6 py-4">
               <div className="font-bold text-xl mb-2">{item.name}</div>
