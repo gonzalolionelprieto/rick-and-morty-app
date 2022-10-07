@@ -1,35 +1,37 @@
 import React from "react";
 
-export default function Pagination({prev, next, onPrevius, onNext}) {
-  const handlePrevius = () => {
-    onPrevius();
+export default function Pagination({ pageNumber,setPagenumber }) {
+  let next = () => {
+    setPagenumber((x) => x + 1);
   };
-  const handleNext = () => {
-    onNext();
+  let prev = () => {
+    if(pageNumber===1)return
+    setPagenumber((x) => x - 1);
   };
+
   return (
     <div>
       <ul className="flex flex-row justify-center w-1/5 my-5 mx-auto  ">
-        {prev ? (
+        
           <li>
             <button
               className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded mx-5"
-              onClick={handlePrevius}
+              onClick={prev}
             >
               Previus
             </button>
           </li>
-        ) : null}
-        {next ? (
+        
+        
           <li>
             <button
               className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded mx-5"
-              onClick={handleNext}
+              onClick={next}
             >
               Next
             </button>
           </li>
-        ) : null}
+        
       </ul>
     </div>
   );

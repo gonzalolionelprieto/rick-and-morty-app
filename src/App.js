@@ -3,50 +3,37 @@ import Cards from "./components/Cards";
 import Nav from "./components/Nav";
 import Pagination from "./components/Pagination";
 
+import Search from "./components/Search/Search";
+
 function App() {
-  const [character, setCharacter] = useState([]);
-  const [info, setInfo] = useState({});
+  let [pageNumber,setPagenumber] =useState(1);
+  let [fetchedData, setFetchedData] = useState([]);
+  let {info,results}=fetchedData;
 
-  const inicialUrl = "https://rickandmortyapi.com/api/character";
+  let [search, setSearch] = useState(" ");
 
-  const fetchAllCharacter = (url) => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setCharacter(data.results);
-        setInfo(data.info);
-      })
-      .catch((err) => console.log(err));
-  };
+  const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}`;
 
-  const onPrevius = () => {
-    fetchAllCharacter(info.prev);
-  };
-
-  const onNext = () => {
-    fetchAllCharacter(info.next);
-  };
+ 
 
   useEffect(() => {
-    fetchAllCharacter(inicialUrl);
-  }, []);
+    (async function () {
+      let data = await fetch(api).then((res) => res.json());
+      setFetchedData(data);
+
+    })();
+  }, [api]);
+  
+
+ 
 
   return (
     <>
       <Nav />
-      <Pagination
-        prev={info.prev}
-        next={info.next}
-        onPrevius={onPrevius}
-        onNext={onNext}
-      />
-      <Cards characters={character} />
-      <Pagination
-        prev={info.prev}
-        next={info.next}
-        onPrevius={onPrevius}
-        onNext={onNext}
-      />
+      <Search search={search} setSearch={setSearch} />
+      <Pagination pageNumber={pageNumber} setPagenumber={setPagenumber} />
+      <Cards results={results} />
+      
     </>
   );
 }
