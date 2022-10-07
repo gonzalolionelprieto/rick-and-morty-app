@@ -31,7 +31,7 @@ function App() {
     <>
       <Nav />
       <Search search={search} setSearch={setSearch} />
-      <Pagination pageNumber={pageNumber} setPagenumber={setPagenumber} />
+      <Pagination info={info} pageNumber={pageNumber} setPagenumber={setPagenumber} />
       <Cards results={results} />
       
     </>
