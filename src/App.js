@@ -12,7 +12,7 @@ function App() {
 
   let [search, setSearch] = useState(" ");
 
-  const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}`;
+  const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
 
  
 

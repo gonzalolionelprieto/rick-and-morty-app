@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default function Search({ setSearch }) {
+export default function Search({ setPagenumber,setSearch }) {
 
   
   return (
@@ -14,7 +14,7 @@ export default function Search({ setSearch }) {
               
               onChange={(e) =>{
                 
-                 
+              setPagenumber=1; 
                setSearch(e.target.value)
              
               }}
@@ -24,6 +24,9 @@ export default function Search({ setSearch }) {
               aria-describedby="button-addon2"
             />
             <button
+              onClick={(e)=>{
+                e.preventDefault()
+              }}
               class="btn inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
               type="button"
               id="button-addon2"

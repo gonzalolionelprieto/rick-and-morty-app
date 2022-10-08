@@ -26,5 +26,5 @@ export default function Cards({ results }) {
   } else {
     display = "No characters founds";
   }
-  return <> <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5   gap-3 justify-center">{display}</div> </>;
+  return <> <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5   gap-3 justify-center p-5">{display}</div> </>;
 }
