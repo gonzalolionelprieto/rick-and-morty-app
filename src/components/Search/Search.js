@@ -7,7 +7,7 @@ export default function Search({ setPagenumber,setSearch }) {
   return (
     <form>
       <div class="flex justify-center">
-        <div class="my-5 xl:w-96">
+        <div class="my-5 ">
           <div class="input-group  flex  items-stretch w-full mb-4">
             <input
               type="text"

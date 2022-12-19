@@ -4,6 +4,7 @@ import ReactPaginate from "react-paginate";
 export default function Pagination({ info, pageNumber, setPagenumber }) {
   return (
     <ReactPaginate
+      forcePage={pageNumber ===1 ? 0: pageNumber-1}
       className="flex flex-row justify-center w-1/5 my-5 mx-auto "
       previousLabel="<"
       previousClassName="flex items-center justify-center px-5 w-10 h-10 text-indigo-600 transition-colors duration-150 rounded-full  hover:bg-indigo-100"
