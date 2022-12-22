@@ -1,7 +1,6 @@
 import React from "react";
-import Gender from "./categorys/Gender";
-import Species from "./categorys/Species";
-import Status from "./categorys/Status";
+import Categorys from "./categorys/Categorys";
+
 
 export default function Filter({
   pageNumber,
@@ -14,26 +13,26 @@ export default function Filter({
   gender,
 }) {
   return (
-    <div className="w-full flex flex-col md:flex-row justify-center items-center">
-      <Status
+    <div className="z-10 w-4/5 mx-auto flex flex-col md:flex-row justify-center items-center">
+      <Categorys
         pageNumber={pageNumber}
         setPagenumber={setPagenumber}
         title={"Status..."}
         setValue={setStatus}
-        options={["alive", "dead", "unknown"]}
+        options={["Alive", "Dead", "Unknown"]}
         value={status}
       />
-      <Species
+      <Categorys
         setPagenumber={setPagenumber}
         title="Species..."
-        options={["Human", "humanoid", "Alien", "unknown"]}
+        options={["Human", "Humanoid", "Alien", "Unknown"]}
         setValue={setSpecies}
         value={species}
       />
-      <Gender
+      <Categorys
         setPagenumber={setPagenumber}
         title="Gender..."
-        options={["female", "male", "genderless", "unknown"]}
+        options={["Female", "Male", "Genderless", "Unknown"]}
         setValue={setGender}
         value={gender}
       />

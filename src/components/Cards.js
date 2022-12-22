@@ -1,30 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
+import Modal from "./Modal/Modal";
 
 export default function Cards({ results }) {
+  const [showModal, setShowModal] = useState(false);
+  const [currentCharacter, setCurrentCharacter] = useState(null);
+
+  const openModal = (characterId) => {
+    setCurrentCharacter(characterId);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   let display;
 
   if (results) {
     display = results.map((x) => {
       let { id, name, image, status, species } = x;
       return (
-        
-          (
-          <div key={id}
-          className="max-w-sm rounded overflow-hidden shadow-lg m-5 mx-auto">
-            <img className="w-full" src={image} alt=" " />
-            <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2">{name}</div>
-              <p className="text-gray-700 text-xl mb-2">
-                {species}-{status}
-              </p>
+        <>
+          <div
+            onClick={() => openModal(id)}
+            key={id}
+            className="cursor-pointer z-10 relative max-w-sm rounded overflow-hidden shadow-lg m-5 mx-auto "
+          >
+            <img
+              className="w-full transition ease-in-out  hover:scale-125  "
+              src={image}
+              alt={name}
+            />
+            <div
+              className=" absolute top-100 left-0 right-0 bottom-0 flex items-center justify-center 
+          bg-gradient-to-t from-black"
+            >
+              <p className="text-xl title-img mb-2">{name}</p>
             </div>
           </div>
-          )
-        
+        </>
       );
     });
   } else {
     display = "No characters founds";
   }
-  return <> <div className="grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5   gap-3 justify-center p-5">{display}</div> </>;
+  return (
+    <>
+      
+      <div className="w-4/5 mx-auto grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 justify-center ">
+        {display}
+        {showModal && (
+          
+          <Modal character={currentCharacter} closeModal={closeModal} />
+        )}
+      </div>
+    </>
+  );
 }
