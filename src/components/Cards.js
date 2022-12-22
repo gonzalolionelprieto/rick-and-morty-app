@@ -18,7 +18,7 @@ export default function Cards({ results }) {
 
   if (results) {
     display = results.map((x) => {
-      let { id, name, image, status, species } = x;
+      let { id, name, image, status } = x;
       return (
         <>
           <div
@@ -26,8 +26,25 @@ export default function Cards({ results }) {
             key={id}
             className="cursor-pointer z-10 relative max-w-sm rounded overflow-hidden shadow-lg m-5 mx-auto "
           >
+            <div className="absolute top-0 right-5 z-20">
+              
+                {status === "Alive" ? (
+                  <div className="rounded h-5 w-full bg-green-500  p-2 flex justify-center items-center my-2 mx-3">
+                    <p className="text-white bold">{status} </p>
+                  </div>
+                ) : status === "Dead" ? (
+                  <div className="rounded h-5 w-full bg-red-500  p-2 flex justify-center items-center my-2 mx-3">
+                    <p className="text-white bold">{status}</p>
+                  </div>
+                ) : (
+                  <div className="rounded h-5 w-full bg-gray-500  p-2 flex justify-center items-center my-2 mx-3">
+                    <p className="text-white bold">{status}</p> 
+                  </div>
+                )}
+              
+            </div>
             <img
-              className="w-full transition ease-in-out  hover:scale-125  "
+              className="w-full transition ease-in-out hover:opacity-75   "
               src={image}
               alt={name}
             />
@@ -46,11 +63,9 @@ export default function Cards({ results }) {
   }
   return (
     <>
-      
       <div className="w-4/5 mx-auto grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 justify-center ">
         {display}
         {showModal && (
-          
           <Modal character={currentCharacter} closeModal={closeModal} />
         )}
       </div>

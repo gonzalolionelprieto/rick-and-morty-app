@@ -36,23 +36,23 @@ const Modal = ({ character, closeModal }) => {
               {characterInfo.name}
             </h2>
             <p className="my-1 text-white">
-              <strong className="text-cyan-400">Status:</strong>{" "}
+              <strong className="text-cyan-400 underline decoration-green-500">Status:</strong>{" "}
               {characterInfo.status}
             </p>
             <p className="my-1 text-white">
-              <strong className="text-cyan-400">Species:</strong>{" "}
+              <strong className="text-cyan-400 underline decoration-green-500">Species:</strong>{" "}
               {characterInfo.species}
             </p>
             <p className="my-1 text-white">
-              <strong className="text-cyan-400">Gender:</strong>{" "}
+              <strong className="text-cyan-400 underline decoration-green-500">Gender:</strong>{" "}
               {characterInfo.gender}
             </p>
             <p className="my-1 text-white">
-              <strong className="text-cyan-400">Location:</strong>{" "}
+              <strong className="text-cyan-400 underline decoration-green-500">Location:</strong>{" "}
               {characterInfo.location.name}
             </p>
             <p className="my-1 text-white">
-              <strong className="text-cyan-400">Origin: text-white</strong>{" "}
+              <strong className="text-cyan-400 underline decoration-green-500">Origin: text-white</strong>{" "}
               {characterInfo.origin.name}
             </p>
           </div>
