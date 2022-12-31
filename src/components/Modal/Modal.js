@@ -23,8 +23,8 @@ const Modal = ({ character, closeModal }) => {
           </svg>
         </button>
 
-        <div className="grid md:grid-cols-12 gap-1 rounded ">
-          <div className="col-span-5 rounded ">
+        <div className="grid  md:grid-cols-12 gap-1 rounded ">
+          <div className=" col-span-7  md:col-span-5 rounded ">
             <img
               className="w-full  rounded"
               src={characterInfo.image}
